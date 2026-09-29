@@ -1,0 +1,33 @@
+---
+description: Capture Type, Chapter, and Class from challenge question documents
+alwaysApply: true
+---
+
+# Question-bank document fields
+
+Each question has **at most one** value in each field. Do not mix them.
+
+## `type`
+
+Column: `edudeca_discipline_questions.type` (`text`, nullable).
+
+Only **TYPE** headings, for example:
+
+- TYPE 1 — VOCABULARY & WORD USAGE
+- TYPE 2 — GRAMMAR & SENTENCE CORRECTION
+
+If the document has a Type heading (or Type column) for that question, copy that one label onto `type` via `normalizeQuestionType`. If there is no TYPE heading, leave `type` null. Never invent a type. Never put a chapter name in `type`.
+
+## `chapter`
+
+Column: `edudeca_discipline_questions.chapter` (`text`, nullable).
+
+CBSE Physics / Chemistry / Mathematics banks use **CHAPTER** or **TOPIC** headings. Copy that heading onto `chapter` (including `RANDOM MIXED …` leftover sections). Do not store those on `type`.
+
+## `class_level`
+
+Column: `edudeca_discipline_questions.class_level` (`text`, nullable). Allowed values: `XI`, `XII`.
+
+If the source filename or document is Class XI or Class XII, store that class here. Aptitude banks with no class stay null.
+
+**Simple / Medium / Medium-Difficult / Difficult / Tricky** are **difficulty**, not type or chapter. Store those on `difficulty_rating`.

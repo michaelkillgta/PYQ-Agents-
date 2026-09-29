@@ -1,0 +1,6 @@
+pymupdf==1.26.3
+httpx
+supabase
+pillow
+numpy
+matplotlib
